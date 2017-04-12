@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninjas</title>
+  </head>
+  <body>
+  <h1>All of the Ninjas!</h1>
+  <p><a href="/ninjas/new">Create A Ninja!</a></p>
+  <% for(var i = 0; i < ninjas.length; i++) { %>
+  <h3>Name: <%= ninjas[i].name%></h3>
+  <a href="/ninjas/<%=ninjas[i]._id%>">More info</a>
+  <h4>Age: <%= ninjas[i].age%></h4>
+  <h4>Weapon(s): <%= ninjas[i].weapon%></h4>
+  <a href="/ninjas/edit/<%= ninjas[i]._id%>">Edit Ninja!</a>
+  <p>
+    <form action="/ninjas/destroy/<%= ninjas[i]._id%>" method="post">
+    <input type="submit" value="Destroy this Ninja!">
+    </form>
+  </p>
+  <% } %>
+  </body>
+</html>
